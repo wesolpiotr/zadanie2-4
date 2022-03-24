@@ -3,14 +3,13 @@
 int main(void) {
   double p; //liczba punktów
   double pd; //punkty za długość skoku
-  double ps; //punkty za styl
+  double ps = 0; //punkty za styl
   double d; //długość skoku
   double k = 120.0; //punkty konstrukcyjny
   double s = 1.8; //stała
   double pkt; //punkty za styl od sędziego
   double min; //najmniejsza ilość pkt
   double max; //największa ilość pkt
-  double suma = 0; //suma punktów za styl liczonych do wyniku
 
   printf("Podaj długość skoku: ");
   scanf("%lf", &d);
@@ -21,13 +20,13 @@ int main(void) {
   scanf("%lf", &pkt);
   min = pkt;
   max = pkt;
-  suma += pkt;
+  ps += pkt;
 
   for(int i = 2; i <= 5; i++) {
     printf("Podaj punkty za styl od %d", i);
     printf(". sędziego: ");
     scanf("%lf", &pkt);
-    suma += pkt;
+    ps += pkt;
 
     if(pkt > max) {
       max = pkt;
@@ -37,11 +36,7 @@ int main(void) {
     }
   }
 
-  suma = suma - max - min;
-
-  printf("%lf", min);
-  printf("%lf", max);
-  printf("%lf", pd);
+  ps = ps - max - min;
 
   p = pd + ps;
 
